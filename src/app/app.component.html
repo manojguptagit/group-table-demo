@@ -1,0 +1,58 @@
+<table border="1">
+  <tr>
+    <th *ngFor="let col of displayedColumns">
+      {{col}}
+    </th>
+  </tr>
+  <tr *ngFor="let char of dataSource; let i = index">
+    <td *ngFor="let col of displayedColumns" [attr.rowspan]="getRowSpan(col, i)" [style.display]="getDisplay(col, i) ? '' : 'none'">
+      {{char[col]}}
+    </td>
+  </tr>
+</table>
+
+
+<!-- <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <ng-container matColumnDef="priority">
+    <th mat-header-cell *matHeaderCellDef> Priority </th>
+    <td mat-cell *matCellDef="let data; let i = index" 
+        [attr.rowspan]="getRowSpan('priority', i)"
+        [style.display]="getRowSpan('priority', i) ? '' : 'none'"> {{data.priority}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="status">
+    <th mat-header-cell *matHeaderCellDef> Status </th>
+    <td mat-cell *matCellDef="let data; let i = index" 
+        [attr.rowspan]="getRowSpan('status', i)"
+        [style.display]="getRowSpan('status', i) ? '' : 'none'"> {{data.status}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="dateCreated">
+    <th mat-header-cell *matHeaderCellDef> Date created </th>
+    <td mat-cell *matCellDef="let data; let i = index" 
+        [attr.rowspan]="getRowSpan('dateCreated', i)"
+        [style.display]="getRowSpan('dateCreated', i) ? '' : 'none'"> {{data.dateCreated}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="testNumber">
+    <th mat-header-cell *matHeaderCellDef> test number </th>
+    <td mat-cell *matCellDef="let data"> {{data.testNumber}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="testCurrency">
+    <th mat-header-cell *matHeaderCellDef> test currency </th>
+    <td mat-cell *matCellDef="let data"> {{data.testCurrency | currency}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="testTime">
+    <th mat-header-cell *matHeaderCellDef> test time </th>
+    <td mat-cell *matCellDef="let data"> {{data.testTime}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+ -->
+
+<router-outlet></router-outlet>
